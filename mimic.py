@@ -57,9 +57,9 @@ def mimic_dict(filename):
     words = text.split()
     prev = ''
     for word in words:
-      if not prev in mimic_dict:
+      if prev not in mimic_dict:
         mimic_dict[prev] = [word]
-    else:
+      else:
         mimic_dict[prev].append(word)
         prev = word
     return mimic_dict
@@ -72,9 +72,9 @@ def print_mimic(mimic_dict, word):
     for notused_i in range(200):
         print(word)
         nexts = mimic_dict.get(word)         
-    if not nexts:
-      nexts = mimic_dict['']  
-      word = random.choice(nexts)
+        if not nexts:
+            nexts = mimic_dict['']  
+        word = random.choice(nexts)
     # raise NotImplementedError("Get to Work!")
 
 
